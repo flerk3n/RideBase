@@ -40,7 +40,7 @@ const RideSelector = () => {
 
   return (
     <div className={style.wrapper}>
-      <h1 className='border-2 text-lg'>ByeBug</h1>
+      {/* <h1 className='border-2 text-lg'>ByeBug</h1> */}
       <div className={style.title}>Choose a ride, or swipe up for more</div>
       <div className={style.carList}>
         {carList.map((car, index) => (
