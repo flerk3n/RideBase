@@ -37,6 +37,7 @@ const LocationSelector = () => {
               />
             </svg>
           </div>
+          <h1>hello</h1>
           <input
             className={style.input}
             placeholder='Enter pickup location'

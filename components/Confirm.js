@@ -54,6 +54,8 @@ const Confirm = () => {
     }
   }
 
+  console.log({ pickup, dropoff, price, selectedRide });
+
   return (
     <div className={style.wrapper}>
       <div className={style.rideSelectorContainer}>

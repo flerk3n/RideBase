@@ -4,7 +4,7 @@ import { useEffect, useContext, useState } from 'react'
 import { UberContext } from '../context/uberContext'
 
 const style = {
-  wrapper: `h-full flex flex-col`,
+  wrapper: `h-full flex flex-col border-2`,
   title: `text-gray-500 text-center text-xs py-2 border-b`,
   carList: `flex flex-col flex-1 overflow-scroll`,
   car: `flex p-3 m-2 items-center border-2 border-white`,
@@ -40,6 +40,7 @@ const RideSelector = () => {
 
   return (
     <div className={style.wrapper}>
+      <h1 className='border-2 text-lg'>ByeBug</h1>
       <div className={style.title}>Choose a ride, or swipe up for more</div>
       <div className={style.carList}>
         {carList.map((car, index) => (
@@ -60,6 +61,7 @@ const RideSelector = () => {
               className={style.carImage}
               height={50}
               width={50}
+              alt='image'
             />
             <div className={style.carDetails}>
               <div className={style.service}>{car.service}</div>
@@ -69,7 +71,7 @@ const RideSelector = () => {
               <div className={style.price}>
                 {((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5)}
               </div>
-              <Image src={ethLogo} height={25} width={40} />
+              <Image src={ethLogo} height={25} width={40}  alt='image'/>
             </div>
           </div>
         ))}
