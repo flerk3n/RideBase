@@ -43,7 +43,7 @@ const Confirm = () => {
         params: [
           {
             from: currentAccount,
-            to: process.env.NEXT_PUBLIC_UBER_ADDRESS,
+            to: process.env.NEXT_PUBLIC_RIDEBASE_ADDRESS,
             gas: '0x7EF40', // 520000 Gwei
             value: ethers.utils.parseEther(price)._hex,
           },
