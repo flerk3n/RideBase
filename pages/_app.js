@@ -1,12 +1,12 @@
 import '../styles/globals.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import { UberProvider } from '../context/uberContext'
+import { RideProvider } from '../context/RideContext'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <UberProvider>
+    <RideProvider>
       <Component {...pageProps} />
-    </UberProvider>
+    </RideProvider>
   )
 }
 

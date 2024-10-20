@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import mapboxgl from '!mapbox-gl'
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
-import { UberContext } from '../context/uberContext'
+import { RideContext } from '../context/RideContext'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 const style = {
@@ -11,7 +11,7 @@ const style = {
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
 
 const Map = () => {
-  const { pickupCoordinates, dropoffCoordinates } = useContext(UberContext)
+  const { pickupCoordinates, dropoffCoordinates } = useContext(RideContext)
 
   useEffect(() => {
     // Default center coordinates for Delhi

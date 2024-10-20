@@ -1,23 +1,24 @@
 import { useState, useContext, useEffect } from 'react'
-import { UberContext } from '../context/uberContext'
+import { RideContext } from '../context/RideContext'
 import mapboxSdk from '@mapbox/mapbox-sdk/services/geocoding'
 
 const style = {
   wrapper: `pt-2`,
-  searchHeader: `w-full font-bold text-left flex items-center text-3xl p-4 overflow-hidden`,
+  searchHeader: `w-full font-bold text-left flex items-center text-2xl sm:text-3xl p-4 overflow-hidden`, // Adjust text size
   inputBoxes: `flex flex-col mb-4 relative`,
-  inputBox: `h-10 mx-4 border-2 bg-[#eeeeee] flex items-center my-1 py-1 px-2`,
+  inputBox: `h-8 sm:h-10 mx-4 border-2 bg-[#eeeeee] flex items-center my-1 py-1 px-2`, // Adjust height
   focusedInputBox: `border-black`,
   svgContainer: `mx-1`,
   input: `my-2 rounded-2 p-2 outline-none border-none bg-transparent h-full w-full`,
-  verticalLine: `w-0 h-[2rem] border-black border absolute z-10 left-[2.3rem] top-[2rem]`,
+  verticalLine: `w-0 h-[1.5rem] sm:h-[2rem] border-black border absolute z-10 left-[2.3rem] top-[2rem]`, // Adjust height
   suggestions: `absolute bg-white z-10 w-full top-[100%] mt-1 shadow-lg rounded-lg max-h-40 overflow-y-auto text-sm left-0`,
   suggestionItem: `p-2 hover:bg-gray-200 cursor-pointer text-sm`,
 }
 
+
 const LocationSelector = () => {
   const [inFocus, setInFocus] = useState('from')
-  const { pickup, setPickup, dropoff, setDropoff } = useContext(UberContext)
+  const { pickup, setPickup, dropoff, setDropoff } = useContext(RideContext)
   const [pickupSuggestions, setPickupSuggestions] = useState([])
   const [dropoffSuggestions, setDropoffSuggestions] = useState([])
 

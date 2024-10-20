@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from 'react'
 import { faker } from '@faker-js/faker'
 
-export const UberContext = createContext()
+export const RideContext = createContext()
 
-export const UberProvider = ({ children }) => {
+export const RideProvider = ({ children }) => {
   const [pickup, setPickup] = useState('')
   const [dropoff, setDropoff] = useState('')
   const [pickupCoordinates, setPickupCoordinates] = useState()
@@ -162,7 +162,7 @@ export const UberProvider = ({ children }) => {
   }
 
   return (
-    <UberContext.Provider
+    <RideContext.Provider
       value={{
         pickup,
         setPickup,
@@ -184,6 +184,6 @@ export const UberProvider = ({ children }) => {
       }}
     >
       {children}
-    </UberContext.Provider>
+    </RideContext.Provider>
   )
 }

@@ -1,26 +1,26 @@
 import Image from 'next/image'
 import ethLogo from '../assets/eth-logo.png'
 import { useEffect, useContext, useState } from 'react'
-import { UberContext } from '../context/uberContext'
+import { RideContext } from '../context/RideContext'
 
 const style = {
   wrapper: `h-full flex flex-col border-2`,
-  title: `text-gray-500 text-center text-xs py-2 border-b`,
+  title: `text-gray-500 text-center text-xs md:text-sm py-2 border-b`, // Increased font size for larger screens
   carList: `flex flex-col flex-1 overflow-scroll`,
-  car: `flex p-3 m-2 items-center border-2 border-white`,
-  selectedCar: `border-2 border-black flex p-3 m-2 items-center`,
-  carImage: `h-14`,
-  carDetails: `ml-2 flex-1`,
-  service: `font-medium`,
-  time: `text-xs text-blue-500`,
+  car: `flex p-2 md:p-3 m-1 md:m-2 items-center border-2 border-white`, // Adjusted padding and margin for smaller screens
+  selectedCar: `border-2 border-black flex p-2 md:p-3 m-1 md:m-2 items-center`, // Same as above
+  carImage: `h-12 md:h-14`, // Adjusted image height for smaller screens
+  carDetails: `ml-1 md:ml-2 flex-1`, // Reduced margin for smaller screens
+  service: `font-medium text-xs md:text-sm`, // Adjusted font size
+  time: `text-[10px] md:text-xs text-blue-500`, // Adjusted font size
   priceContainer: `flex items-center`,
-  price: `mr-[-0.8rem]`,
+  price: `mr-[-0.5rem] md:mr-[-0.8rem]`, // Adjusted margin for smaller screens
 }
 
 const RideSelector = () => {
   const [carList, setCarList] = useState([])
   const { selectedRide, setSelectedRide, setPrice, basePrice } =
-    useContext(UberContext)
+    useContext(RideContext)
 
   console.log(basePrice)
 
@@ -53,7 +53,7 @@ const RideSelector = () => {
             }`}
             onClick={() => {
               setSelectedRide(car)
-              setPrice(((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5))
+              setPrice(((basePrice / 10 ** 6) * car.priceMultiplier).toFixed(5))
             }}
           >
             <Image
@@ -69,7 +69,7 @@ const RideSelector = () => {
             </div>
             <div className={style.priceContainer}>
               <div className={style.price}>
-                {((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5)}
+                {((basePrice / 10 ** 6) * car.priceMultiplier).toFixed(5)}
               </div>
               <Image src={ethLogo} height={25} width={40}  alt='image'/>
             </div>
