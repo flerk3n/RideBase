@@ -20,7 +20,7 @@ export default function Feature() {
               <div className="flex-1 p-6 text-start font-jeko">
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="mb-4">{feature.description}</p>
-                <Link href={feature.route} legacyBehavior>
+                <Link href={feature.route}>
                   <button className="bg-[#FFFFFF] text-[#121212] px-4 py-2 rounded-lg">
                     Details
                   </button>
@@ -32,7 +32,7 @@ export default function Feature() {
                   alt={`${feature.title} image`} 
                   width={300} 
                   height={200} 
-                  className="w-full h-auto"
+                  className=" h-auto"
                 />
               </div>
             </div>
