@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,23 +10,32 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-black text-white font-jeko">
+    <header className="bg-white text-black font-jeko">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
-        <div className="text-4xl font-bold">Ridebase</div>
+        <div className="flex items-center space-x-4">
+          <Image 
+            src="/images/logo.jpg"
+            alt="Ridebase Logo"
+            width={40}
+            height={40}
+            className="inline-block"
+          />
+          <div className="text-4xl font-bold">Ridebase</div>
+        </div>
         <div className="hidden md:flex space-x-8">
           <Link href="/login" legacyBehavior>
-            <button className="transition duration-300 text-white hover:text-gray-400 hover:underline focus:outline-none">
+            <button className="transition duration-300 text-black hover:text-gray-500 hover:underline focus:outline-none">
               Log in
             </button>
           </Link>
           <Link href="/signup" legacyBehavior>
-            <button className="bg-white text-black px-6 py-2 rounded transition duration-300 hover:bg-gray-300 focus:outline-none">
+            <button className="bg-[#ffcc00] text-black px-6 py-2 rounded transition duration-300 hover:bg-green-500 hover:text-white focus:outline-none">
               Sign up
             </button>
           </Link>
         </div>
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-black focus:outline-none"
           onClick={toggleMenu}
         >
           <svg
@@ -44,14 +54,14 @@ export default function Header() {
         </button>
       </nav>
       {isOpen && (
-        <div className="md:hidden bg-black p-4">
+        <div className="md:hidden bg-white p-4">
           <Link href="/login" legacyBehavior>
-            <button className="block text-white transition duration-300 hover:text-gray-400 py-2 hover:underline focus:outline-none">
+            <button className="block text-black transition duration-300 hover:text-gray-500 py-2 hover:underline focus:outline-none">
               Log in
             </button>
           </Link>
           <Link href="/signup" legacyBehavior>
-            <button className="block bg-white text-black px-6 py-2 rounded transition duration-300 hover:bg-gray-300 focus:outline-none">
+            <button className="block bg-[#ffcc00] text-black px-6 py-2 rounded transition duration-300 hover:bg-green-500 hover:text-white focus:outline-none">
               Sign up
             </button>
           </Link>
